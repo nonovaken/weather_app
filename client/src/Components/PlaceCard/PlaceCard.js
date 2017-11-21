@@ -100,7 +100,7 @@ class PlaceCard extends Component {
         }
 
         return (
-            <div id='row-container' onMouseOver={this.handleMouseOver}>
+            <div id='row-container' style={styles.rowContainerStyle} onMouseOver={this.handleMouseOver}>
                 <div id='card-container' style={styles.cardContainerStyle}>
                     <Card
                         expanded={this.props.expanded}

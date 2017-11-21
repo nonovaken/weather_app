@@ -1,7 +1,12 @@
 export default {
+    rowContainerStyle: {
+        width: 800,
+        marginTop: 25,
+    },
     cardContainerStyle: {
         width: 620,
         display: 'inline-block',
+        margin: '0 auto'
     },
     cardHeaderStyle: {
         paddingTop: 0,

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
+import WelcomeNote from './WelcomeNote';
 import {Card, CardHeader, CardText} from 'material-ui/Card'
 import IconButton from 'material-ui/IconButton';
-import WelcomeNote from './WelcomeNote';
 import styles from '../styles/PlaceCard.css';
 
 class InstructCard extends Component {
@@ -56,13 +56,12 @@ class InstructCard extends Component {
         Desplay remove button when mouse is over current card
          */
 
-        console.log(this.props.mouseOver);
         let removeButton = null;
         if(this.props.mouseOver && !this.props.expanded) {
             removeButton = (
                 <IconButton
                     iconClassName="material-icons"
-                    iconstyle={styles.iconStyle}
+                    iconStyle={styles.iconStyle}
                     style={styles.buttonStyle}
                     onClick={this.handleClick}
                     disableTouchRipple={true}
@@ -73,12 +72,11 @@ class InstructCard extends Component {
         }
 
         return (
-            <div id='row-container' onMouseOver={this.handleMouseOver}>
+            <div id='row-container' style={styles.rowContainerStyle} onMouseOver={this.handleMouseOver}>
                 <div id='card-container' style={styles.cardContainerStyle}>
                     <Card
                         expanded={this.props.expanded}
                         onExpandChange={this.handleExpandChange}
-                        style={styles.cardStyle}
                     >
                         <CardHeader
                             actAsExpander = {true}

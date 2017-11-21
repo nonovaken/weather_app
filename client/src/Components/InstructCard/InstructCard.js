@@ -1,46 +1,8 @@
 import React, {Component} from 'react';
-import DataArea from './DataArea';
-import SelectorArea from './SelectorArea';
 import {Card, CardHeader, CardText} from 'material-ui/Card'
 import IconButton from 'material-ui/IconButton';
-
-const imgs = {
-    'clear-day': require('../weather-icon/clear-day.png'),
-    'clear-night': require('../weather-icon/clear-night.png'),
-    'fog': require('../weather-icon/fog.png'),
-    'partly-cloudy-day': require('../weather-icon/partly-cloudy-day.png'),
-    'partly-cloudy-night': require('../weather-icon/partly-cloudy-night.png'),
-    'rain-night': require('../weather-icon/rain-night.png'),
-    'sleet': require('../weather-icon/sleet.png'),
-    'snow': require('../weather-icon/snow.png'),
-    'wind': require('../weather-icon/wind.png')
-};
-
-const cardContainerStyle = {
-    width: 620,
-    display: 'inline-block',
-};
-const cardStyle = {
-};
-const cardHeaderStyle = {
-    paddingTop: 0,
-    paddingBottom: 0
-};
-const dataAreaStyle = {
-};
-const iconStyle = {
-    color: '#00BCD4'
-};
-const buttonStyle = {
-    bottom: 60
-};
-const cardTextStyle = {
-    paddingTop: 0,
-    paddingBottom: 5
-};
-
-const mainColor = 'black';
-const subColor = '#9E9E9E';
+import WelcomeNote from './WelcomeNote';
+import styles from '../styles/PlaceCard.css';
 
 class InstructCard extends Component {
     constructor(props) {
@@ -100,8 +62,8 @@ class InstructCard extends Component {
             removeButton = (
                 <IconButton
                     iconClassName="material-icons"
-                    iconStyle={iconStyle}
-                    style={buttonStyle}
+                    iconstyle={styles.iconStyle}
+                    style={styles.buttonStyle}
                     onClick={this.handleClick}
                     disableTouchRipple={true}
                 >
@@ -112,20 +74,20 @@ class InstructCard extends Component {
 
         return (
             <div id='row-container' onMouseOver={this.handleMouseOver}>
-                <div id='card-container' style={cardContainerStyle}>
+                <div id='card-container' style={styles.cardContainerStyle}>
                     <Card
                         expanded={this.props.expanded}
                         onExpandChange={this.handleExpandChange}
-                        style={{cardStyle}}
+                        style={styles.cardStyle}
                     >
                         <CardHeader
                             actAsExpander = {true}
-                            style={cardHeaderStyle}
+                            style={styles.cardHeaderStyle}
                         >
                             <WelcomeNote/>
                         </CardHeader>
 
-                        <CardText id='card-text' style={cardTextStyle} expandable = {true}>
+                        <CardText id='card-text' style={styles.cardTextStyle} expandable = {true}>
                             More instruction
                         </CardText>
                     </Card>
@@ -135,56 +97,6 @@ class InstructCard extends Component {
             </div>
         )
     };
-}
-
-function Title(props) {
-    const locationStyle = {
-        fontSize: 27,
-        fontFamily: 'Roboto, sans-serif',
-        fontWeight: 300,
-        color: mainColor
-    };
-    const infoStyle = {
-        fontSize: 16,
-        fontFamily: 'Roboto, sans-serif',
-        fontWeight: 300,
-        color: subColor,
-        marginTop: 2
-    };
-    return (
-        <div>
-            <div style={locationStyle}>
-                Welcome!
-            </div>
-            <div style={infoStyle}>Here is some instruction about how to use this web site</div>
-        </div>
-    );
-}
-
-function WelcomeNote(props) {
-    const cardStyle = {
-        // backgroundColor: '#00BCD4',
-        paddingTop: 0,
-        paddingBottom: 10,
-        paddingLeft: 10,
-        paddingRight: 10
-    };
-    const mainDataStyle = {
-        display: 'inline-block',
-
-        backgroundSize: 10000,
-        width: 300
-    };
-    return (
-        <div style={cardStyle}>
-            <div>
-                <Title/>
-            </div>
-            <div style={mainDataStyle}>
-                Instruction
-            </div>
-        </div>
-    )
 }
 
 export default InstructCard;

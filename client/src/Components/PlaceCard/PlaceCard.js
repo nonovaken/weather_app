@@ -1,42 +1,20 @@
 import React, {Component} from 'react';
 import DataArea from './DataArea';
-import SelectorArea from './SelectorArea';
+import SelectorArea from '../SelectorArea';
 import {Card, CardHeader, CardText} from 'material-ui/Card'
 import IconButton from 'material-ui/IconButton';
+import styles from '../styles/PlaceCard.css';
 
 const imgs = {
-    'clear-day': require('../weather-icon/clear-day.png'),
-    'clear-night': require('../weather-icon/clear-night.png'),
-    'fog': require('../weather-icon/fog.png'),
-    'partly-cloudy-day': require('../weather-icon/partly-cloudy-day.png'),
-    'partly-cloudy-night': require('../weather-icon/partly-cloudy-night.png'),
-    'rain-night': require('../weather-icon/rain-night.png'),
-    'sleet': require('../weather-icon/sleet.png'),
-    'snow': require('../weather-icon/snow.png'),
-    'wind': require('../weather-icon/wind.png')
-};
-
-const cardContainerStyle = {
-    width: 620,
-    display: 'inline-block',
-};
-const cardStyle = {
-};
-const cardHeaderStyle = {
-    paddingTop: 0,
-    paddingBottom: 0
-};
-const dataAreaStyle = {
-};
-const iconStyle = {
-    color: '#00BCD4'
-};
-const buttonStyle = {
-    bottom: 60
-};
-const cardTextStyle = {
-    paddingTop: 0,
-    paddingBottom: 5
+    'clear-day': require('../../weather-icon/clear-day.png'),
+    'clear-night': require('../../weather-icon/clear-night.png'),
+    'fog': require('../../weather-icon/fog.png'),
+    'partly-cloudy-day': require('../../weather-icon/partly-cloudy-day.png'),
+    'partly-cloudy-night': require('../../weather-icon/partly-cloudy-night.png'),
+    'rain-night': require('../../weather-icon/rain-night.png'),
+    'sleet': require('../../weather-icon/sleet.png'),
+    'snow': require('../../weather-icon/snow.png'),
+    'wind': require('../../weather-icon/wind.png')
 };
 
 class PlaceCard extends Component {
@@ -63,6 +41,7 @@ class PlaceCard extends Component {
         this.handleExpandChange = this.handleExpandChange.bind(this);
         this.handleClick = this.handleClick.bind(this);
         this.handleMouseOver = this.handleMouseOver.bind(this);
+
     }
 
     // place card only
@@ -110,8 +89,8 @@ class PlaceCard extends Component {
             removeButton = (
                 <IconButton
                     iconClassName="material-icons"
-                    iconStyle={iconStyle}
-                    style={buttonStyle}
+                    iconStyle={styles.iconStyle}
+                    style={styles.buttonStyle}
                     onClick={this.handleClick}
                     disableTouchRipple={true}
                 >
@@ -122,15 +101,15 @@ class PlaceCard extends Component {
 
         return (
             <div id='row-container' onMouseOver={this.handleMouseOver}>
-                <div id='card-container' style={cardContainerStyle}>
+                <div id='card-container' style={styles.cardContainerStyle}>
                     <Card
                         expanded={this.props.expanded}
                         onExpandChange={this.handleExpandChange}
-                        style={{cardStyle}}
+                        style={styles.cardStyle}
                     >
                         <CardHeader
                             actAsExpander = {true}
-                            style={cardHeaderStyle}
+                            style={styles.cardHeaderStyle}
                         >
                             <DataArea
                                 location = {this.props.location}
@@ -139,11 +118,11 @@ class PlaceCard extends Component {
                                 forecastType = {this.state.forecastType}
                                 currentlyDetail = {this.state.data.currentlyDetail}
                                 imgs = {imgs}
-                                style={dataAreaStyle}
+                                style={styles.dataAreaStyle}
                             />
                         </CardHeader>
 
-                        <CardText id='card-text' style={cardTextStyle} expandable = {true}>
+                        <CardText id='card-text' style={styles.cardTextStyle} expandable = {true}>
                             <SelectorArea
                                 handleSelectorChange = {this.handleSelectorChange}
                                 data = {this.state.data}

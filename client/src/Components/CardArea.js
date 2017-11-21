@@ -1,6 +1,6 @@
 import React from 'react';
-import PlaceCard from "./PlaceCard";
-import InstructCard from "./InstructCard";
+import PlaceCard from "./PlaceCard/PlaceCard";
+import InstructCard from "./InstructCard/InstructCard";
 
 function CardArea(props) {
     const cardStyle = {

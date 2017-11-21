@@ -1,0 +1,26 @@
+Place Card = {
+	data,
+	location,
+	photo,
+	selectedTime = {
+		hour
+		date
+	}
+
+	Main Data = {
+		currentData = {
+			temp, 
+			hum,
+			rain,
+			...
+		}
+	}
+
+	Hourly Chart = {
+		
+	}
+
+	Data Selector = {
+
+	}
+}
